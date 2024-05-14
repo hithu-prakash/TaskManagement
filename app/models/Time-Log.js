@@ -12,9 +12,15 @@ const timeLogSchema = new Schema({
         ref: 'User', 
         required: true 
     },
-    timeSpent: { type: Number, required: true }, // Time spent in minutes
-    loggedAt: { type: Date, default: Date.now }
-}, { timestamps: true }) // Timestamps to know what time this was logged
+    timeSpent: { 
+        type: Number, 
+        required: true
+    }, // Time spent in minutes
+    loggedAt: { 
+        type: Date, 
+        
+        default: Date.now }
+}, { timestamps: true }) 
 
 const TimeLog = model('TimeLog', timeLogSchema)
 

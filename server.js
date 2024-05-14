@@ -13,6 +13,8 @@ const TaskValidations = require('./app/validations/task-validation')
 const taskUpdateValidation=require('./app/validations/task-update-validation')
 //comment validations
 const commentValidation = require('./app/validations/comment-validation')
+//timeLog
+const {timeLogValidations,timeLogUpdateValidations} = require('./app/validations/timeLog-validation')
 
 //db
 const configureDB = require('./config/db')
@@ -24,6 +26,8 @@ const userCntl = require('./app/controllers/user-cntrl')
 const taskCntl = require('./app/controllers/task-cntrl')
 //comments
 const commentCntl = require('./app/controllers/comment-cntrl')
+//timeLog
+const timeCntrl=require('./app/controllers/timeLog-cntl')
 
 //middleware
 const authenticateUser=require('./app/middlewares/authenticateUser')
@@ -63,6 +67,9 @@ app.delete('/comment/delete',authenticateUser,authorizeUser(['user']),commentCnt
 
 //gmail
 app.post('/sendemail',authenticateUser,taskCntl.Gmail)
+
+//timeLog
+app.post('/time/create',authenticateUser,checkSchema(timeLogValidations),timeCntrl.addTimeLogin)
 
 app.listen(port,() => {
     console.log('port running sucessfully',port)
