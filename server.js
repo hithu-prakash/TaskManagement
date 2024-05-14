@@ -14,7 +14,7 @@ const taskUpdateValidation=require('./app/validations/task-update-validation')
 //comment validations
 const commentValidation = require('./app/validations/comment-validation')
 //timeLog
-const {timeLogValidations,timeLogUpdateValidations} = require('./app/validations/timeLog-validation')
+//const {timeLogValidations,timeLogUpdateValidations} = require('./app/validations/timeLog-validation')
 
 //db
 const configureDB = require('./config/db')
@@ -69,7 +69,7 @@ app.delete('/comment/delete',authenticateUser,authorizeUser(['user']),commentCnt
 app.post('/sendemail',authenticateUser,taskCntl.Gmail)
 
 //timeLog
-app.post('/time/create',authenticateUser,checkSchema(timeLogValidations),timeCntrl.addTimeLogin)
+app.post('/time/create',authenticateUser,timeCntrl.addTimeLog)
 
 app.listen(port,() => {
     console.log('port running sucessfully',port)

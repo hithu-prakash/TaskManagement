@@ -1,11 +1,11 @@
 const timeLogValidations = {
-    taskId: {
+    task: {
         in: ['body'],
         exists:{
             errorMessage:"task Id is required"
         },
     notEmpty:{
-        errorMessage: 'User ID cannot be empty'
+        errorMessage: 'task ID cannot be empty'
         }
     },
     timeSpent: {
@@ -14,7 +14,7 @@ const timeLogValidations = {
             errorMessage:"task Id is required"
         },
         notEmpty:{
-            errorMessage: 'User ID cannot be empty'
+            errorMessage: 'task ID cannot be empty'
         },
         isNumeric: {
             errorMessage: 'Time spent must be a numeric value'
