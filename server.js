@@ -70,6 +70,9 @@ app.post('/sendemail',authenticateUser,taskCntl.Gmail)
 
 //timeLog
 app.post('/time/create',authenticateUser,timeCntrl.addTimeLog)
+app.get('/timeLog/tasks/:taskId', authenticateUser, timeCntrl.getTimeLoginByTask)
+app.put('/timeLog/update',authenticateUser,timeCntrl.update)
+app.delete('/timeLog/delete', authenticateUser, timeCntrl.delete)
 
 app.listen(port,() => {
     console.log('port running sucessfully',port)
